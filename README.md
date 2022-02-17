@@ -1,28 +1,63 @@
-<h1 align="center"> notice </h1>
+---
 
-<p align="center"> A message notifies the SDK.</p>
+# Notice
 
+[![Build Status](https://github.com/jiuxiaoer/notice/actions/workflows/test.yml/badge.svg)](https://github.com/jiuxiaoer/weather/actions)
 
-## Installing
+消息通知集合包 钉钉 √ 微信 ....... 通知渠道  laravel 适配ing 
 
-```shell
+## 安装
+
+```sh
 $ composer require jiuxiaoer/notice -vvv
 ```
 
-## Usage
+## 配置
 
-TODO
+在使用本扩展之前，你需要去钉钉群创建一个自定义机器人 获取到 Webhook 和 加签值
+https://open.dingtalk.com/document/group/custom-robot-access
 
-## Contributing
+## 使用
 
-You can contribute in one of three ways:
+```php
+use Jiuxiaoer\Notice\lib\DingMsg;
 
-1. File bug reports using the [issue tracker](https://github.com/jiuxiaoer/notice/issues).
-2. Answer questions or fix bugs on the [issue tracker](https://github.com/jiuxiaoer/notice/issues).
-3. Contribute new features or update the wiki.
+$key = 'xxxxxxxxxxxxxxxxxxxxxxxxxxx';
+$sign = 'xxxxxxxxxxxxxxxxxxxxxxxxxxx';
 
-_The code contribution process is not very formal. You just need to make sure that you follow the PSR-0, PSR-1, and PSR-2 coding guidelines. Any new code contributions must be accompanied by unit tests where applicable._
+$dingMsg = new DingMsg($key,$sign);
+```
 
+### 发送 txt 文本消息
+```php
+$dingMsg->text('普通消息测试', ['1769xxxxxxx'])
+```
+
+### 发送 link 文本消息
+```php
+$dingMsg->link('链接测试', '欢迎Ceo!', 'https://www.79xj.cn/', 'https://www.79xj.cn/usr/uploads/2021/03/44950235.jpg')
+```
+
+### 发送 markdown 文本消息
+```php
+$dingMsg->markdown('Markdown 测试', "#### Markdown 测试", ['1769xxxxxxx'])
+```
+
+### 发送 ActionCard 卡片
+```php
+$dingMsg->actionCard('我 20 年前想打造一间苹果咖啡厅，而它正是 Apple Store 的前身',
+            "![screenshot](https://img.alicdn.com/tfs/TB1NwmBEL9TBuNjy1zbXXXpepXa-2400-1218.png) \n\n #### 乔布斯 20 年前想打造的苹果咖啡厅 \n\n Apple Store 的设计正从原来满满的科技感走向生活化，而其生活化的走向其实可以追溯到 20 年前苹果一个建立咖啡馆的计划"
+            , '阅读全文', 'https://www.dingtalk.com/', '0')
+```
+
+### 发送 ActionCardAlone 卡片
+```php
+$dingMsg->actionCardAlone('我 20 年前想打造一间苹果咖啡厅，而它正是 Apple Store 的前身',
+            "![screenshot](https://img.alicdn.com/tfs/TB1NwmBEL9TBuNjy1zbXXXpepXa-2400-1218.png) \n\n #### 乔布斯 20 年前想打造的苹果咖啡厅 \n\n Apple Store 的设计正从原来满满的科技感走向生活化，而其生活化的走向其实可以追溯到 20 年前苹果一个建立咖啡馆的计划"
+            , [['title' => '6666', 'actionURL' => 'https://www.79xj.cn'], ['title' => '6666', 'actionURL' => 'https://www.79xj.cn']])
+```
+## 参考
+https://open.dingtalk.com/document/group/custom-robot-access
 ## License
 
 MIT
