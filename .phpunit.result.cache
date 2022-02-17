@@ -1,0 +1,1 @@
+{"version":1,"defects":[],"times":{"DingMsgTest::testSendText":0.064,"DingMsgTest::testSendLink":0.001,"DingMsgTest::testSendMarkdown":0.001,"DingMsgTest::testActionCard":0.001,"DingMsgTest::testActionCardAlone":0.001}}

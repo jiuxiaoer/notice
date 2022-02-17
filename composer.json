@@ -1,0 +1,23 @@
+{
+    "name": "jiuxiaoer/notice",
+    "description": "A message notifies the SDK",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "jiuxiaoer",
+            "email": "yinshen@79xj.cn"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jiuxiaoer\\Notice\\": "src"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "mockery/mockery": "^1.5"
+    }
+}
