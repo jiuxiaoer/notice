@@ -4,5 +4,5 @@ namespace Jiuxiaoer\Notice\lib;
 
 interface NoticeBase
 {
-    public  function send(array $data): bool;
+    public function send(array $data): bool;
 }
