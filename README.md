@@ -3,6 +3,7 @@
 # Notice
 
 [![Build Status](https://github.com/jiuxiaoer/notice/actions/workflows/test.yml/badge.svg)](https://github.com/jiuxiaoer/weather/actions)
+![StyleCI build status](https://github.styleci.io/repos/460353935/shield)
 
 消息通知集合包 钉钉 √ 微信 ....... 通知渠道  laravel 适配ing 
 
