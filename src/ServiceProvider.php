@@ -10,8 +10,8 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
 
     public function register()
     {
-        $this->app->singleton(DingMsg::class, function(){
-            return new DingMsg(config('services.notice.dingKey',config('services.notice.dingSign')));
+        $this->app->singleton(DingMsg::class, function () {
+            return new DingMsg(config('services.notice.dingKey', config('services.notice.dingSign')));
         });
 
         $this->app->alias(DingMsg::class, 'dingMsg');
